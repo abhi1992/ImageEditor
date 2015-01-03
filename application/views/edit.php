@@ -91,7 +91,7 @@ $(document).ready(function(){
   };
 
   $(document).on('click', '.fotorama__grab', function() {
-
+    
     // ioo = $(this).find('.fotorama__active').find('.fotorama__img').attr('src');
     // // console.log($(this).find('.fotorama__active') +"  " +$(this).find('.fotorama__active').find('.fotorama__img').attr('src')+ "  " + $(this));
     // var i = ioo.indexOf('thumbnail/');
