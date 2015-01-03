@@ -66,21 +66,29 @@ $(document).ready(function(){
   var ioo;
   $(document).on('click', '#download_link', function() {
 
-    // ioo = $('.fotorama__img').attr('src');
-    // $('#download_link').attr('href', ioo+'/download');
-    // window.location.assign(img+"/download");
+    ioo = $('.fotorama__nav__shaft').find('.fotorama__active').find('.fotorama__img').attr('src');
 
-    ioo = $('.fotorama__grab').find('.fotorama__active').find('.fotorama__img').attr('src');
-    // console.log($(this).find('.fotorama__active') +"  " +$(this).find('.fotorama__active').find('.fotorama__img').attr('src')+ "  " + $(this));
     var i = ioo.indexOf('thumbnail/');
     
     var l1 = ioo.substr(0, i);
     var l2 = ioo.substr(i+9);
 
     var link = l1+l2;
-    console.log(link + " -- " + l1 + "  ==  "+l2);
+    console.log(ioo + " -- " + i + "  ==  "+l2);
     $('#download_link').attr('href', link);
   });
+
+  window.onresize=function(){
+    var img = $('.fotorama__stage__frame').find('.fotorama__img').offset();
+        // ioo = $('.fotorama__img').attr('src');
+        
+          $('.download_div').css({
+          top: (parseInt(img.top) + 10),
+          left: (parseInt(img.left) + 10)
+        });
+        
+        
+  };
 
   $(document).on('click', '.fotorama__grab', function() {
 
@@ -101,21 +109,20 @@ $(document).ready(function(){
     $(document).on('mouseenter','.fotorama__stage__frame',function(){
         // $(this).attr('value',$(this).val());
         // console.log("jvhhj");
-        var img = $('.fotorama__img').offset();
+        var img = $('.fotorama__stage__frame').find('.fotorama__img').offset();
         // ioo = $('.fotorama__img').attr('src');
         if(!vi) {
           $('.download_div').css({
           top: (parseInt(img.top) + 10),
           left: (parseInt(img.left) + 10)
         });
-          vi = true;
+        vi = true;
         }
+
         $('.download_div').css({
           
           opacity: 0.9
         });
-        // $('#download').show();
-        // console.log("i"+ img.left);
     });
     $(document).on('mouseleave','.fotorama__stage__frame',function(){
         // $(this).attr('value',$(this).val());
